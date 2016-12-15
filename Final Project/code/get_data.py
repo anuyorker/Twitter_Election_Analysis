@@ -14,7 +14,7 @@ class MyStreamListener(tweepy.StreamListener):
 	def on_data(self, data):
 		while True:
 			try:
-				with open(self.output, 'a', encoding='utf-8') as f:
+				with open(self.output, 'a', encoding='utf-8') as f: # writes as str
 					parsedjson = json.loads(data)
 					prettydata = json.dumps(parsedjson, sort_keys=True, indent=4)
 					f.write(prettydata)
